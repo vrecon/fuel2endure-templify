@@ -1,0 +1,701 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-race-heading" data-cy="RaceCreateUpdateHeading" jhiTranslate="fuel2EndureApp.race.home.createOrEditLabel">
+        Create or edit a Race
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.date" for="field_date">Date</label>
+          <div class="input-group">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="text"
+              class="form-control"
+              name="date"
+              ngbDatepicker
+              #dateDp="ngbDatepicker"
+              formControlName="date"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.logging" for="field_logging">Logging</label>
+          <input type="text" class="form-control" name="logging" id="field_logging" data-cy="logging" formControlName="logging" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.weight" for="field_weight">Weight</label>
+          <input type="number" class="form-control" name="weight" id="field_weight" data-cy="weight" formControlName="weight" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.length" for="field_length">Length</label>
+          <input type="number" class="form-control" name="length" id="field_length" data-cy="length" formControlName="length" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.temperature" for="field_temperature">Temperature</label>
+          <input
+            type="number"
+            class="form-control"
+            name="temperature"
+            id="field_temperature"
+            data-cy="temperature"
+            formControlName="temperature"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.comp" for="field_comp">Comp</label>
+          <input type="number" class="form-control" name="comp" id="field_comp" data-cy="comp" formControlName="comp" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.swimDuration" for="field_swimDuration">Swim Duration</label>
+          <input
+            type="number"
+            class="form-control"
+            name="swimDuration"
+            id="field_swimDuration"
+            data-cy="swimDuration"
+            formControlName="swimDuration"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.bikeDuration" for="field_bikeDuration">Bike Duration</label>
+          <input
+            type="number"
+            class="form-control"
+            name="bikeDuration"
+            id="field_bikeDuration"
+            data-cy="bikeDuration"
+            formControlName="bikeDuration"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.runDuration" for="field_runDuration">Run Duration</label>
+          <input
+            type="number"
+            class="form-control"
+            name="runDuration"
+            id="field_runDuration"
+            data-cy="runDuration"
+            formControlName="runDuration"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelCarbo" for="field_gelCarbo">Gel Carbo</label>
+          <input type="number" class="form-control" name="gelCarbo" id="field_gelCarbo" data-cy="gelCarbo" formControlName="gelCarbo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.drinkCarbo" for="field_drinkCarbo">Drink Carbo</label>
+          <input
+            type="number"
+            class="form-control"
+            name="drinkCarbo"
+            id="field_drinkCarbo"
+            data-cy="drinkCarbo"
+            formControlName="drinkCarbo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.drinkOrgCarbo" for="field_drinkOrgCarbo"
+            >Drink Org Carbo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="drinkOrgCarbo"
+            id="field_drinkOrgCarbo"
+            data-cy="drinkOrgCarbo"
+            formControlName="drinkOrgCarbo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelOrgCarbo" for="field_gelOrgCarbo">Gel Org Carbo</label>
+          <input
+            type="number"
+            class="form-control"
+            name="gelOrgCarbo"
+            id="field_gelOrgCarbo"
+            data-cy="gelOrgCarbo"
+            formControlName="gelOrgCarbo"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelsbike" for="field_gelsbike">Gelsbike</label>
+          <input type="number" class="form-control" name="gelsbike" id="field_gelsbike" data-cy="gelsbike" formControlName="gelsbike" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelsrun" for="field_gelsrun">Gelsrun</label>
+          <input type="number" class="form-control" name="gelsrun" id="field_gelsrun" data-cy="gelsrun" formControlName="gelsrun" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.selectedOrgGelQuery" for="field_selectedOrgGelQuery"
+            >Selected Org Gel Query</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="selectedOrgGelQuery"
+            id="field_selectedOrgGelQuery"
+            data-cy="selectedOrgGelQuery"
+            formControlName="selectedOrgGelQuery"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.selectedOrgDrankQuery" for="field_selectedOrgDrankQuery"
+            >Selected Org Drank Query</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="selectedOrgDrankQuery"
+            id="field_selectedOrgDrankQuery"
+            data-cy="selectedOrgDrankQuery"
+            formControlName="selectedOrgDrankQuery"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.sportDrinkOrgBike" for="field_sportDrinkOrgBike"
+            >Sport Drink Org Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="sportDrinkOrgBike"
+            id="field_sportDrinkOrgBike"
+            data-cy="sportDrinkOrgBike"
+            formControlName="sportDrinkOrgBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.waterOrgBike" for="field_waterOrgBike">Water Org Bike</label>
+          <input
+            type="number"
+            class="form-control"
+            name="waterOrgBike"
+            id="field_waterOrgBike"
+            data-cy="waterOrgBike"
+            formControlName="waterOrgBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelsOrgBike" for="field_gelsOrgBike">Gels Org Bike</label>
+          <input
+            type="number"
+            class="form-control"
+            name="gelsOrgBike"
+            id="field_gelsOrgBike"
+            data-cy="gelsOrgBike"
+            formControlName="gelsOrgBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.sportDrinkOrgRun" for="field_sportDrinkOrgRun"
+            >Sport Drink Org Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="sportDrinkOrgRun"
+            id="field_sportDrinkOrgRun"
+            data-cy="sportDrinkOrgRun"
+            formControlName="sportDrinkOrgRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.waterOrgRun" for="field_waterOrgRun">Water Org Run</label>
+          <input
+            type="number"
+            class="form-control"
+            name="waterOrgRun"
+            id="field_waterOrgRun"
+            data-cy="waterOrgRun"
+            formControlName="waterOrgRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelsOrgRun" for="field_gelsOrgRun">Gels Org Run</label>
+          <input
+            type="number"
+            class="form-control"
+            name="gelsOrgRun"
+            id="field_gelsOrgRun"
+            data-cy="gelsOrgRun"
+            formControlName="gelsOrgRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.orsBeforeStart" for="field_orsBeforeStart"
+            >Ors Before Start</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="orsBeforeStart"
+            id="field_orsBeforeStart"
+            data-cy="orsBeforeStart"
+            formControlName="orsBeforeStart"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.sportDrinkToTakeBike" for="field_sportDrinkToTakeBike"
+            >Sport Drink To Take Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="sportDrinkToTakeBike"
+            id="field_sportDrinkToTakeBike"
+            data-cy="sportDrinkToTakeBike"
+            formControlName="sportDrinkToTakeBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.waterToTakeBike" for="field_waterToTakeBike"
+            >Water To Take Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="waterToTakeBike"
+            id="field_waterToTakeBike"
+            data-cy="waterToTakeBike"
+            formControlName="waterToTakeBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.extraWaterToTakeBike" for="field_extraWaterToTakeBike"
+            >Extra Water To Take Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="extraWaterToTakeBike"
+            id="field_extraWaterToTakeBike"
+            data-cy="extraWaterToTakeBike"
+            formControlName="extraWaterToTakeBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.orsToTakeBike" for="field_orsToTakeBike"
+            >Ors To Take Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="orsToTakeBike"
+            id="field_orsToTakeBike"
+            data-cy="orsToTakeBike"
+            formControlName="orsToTakeBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelsToTakeBike" for="field_gelsToTakeBike"
+            >Gels To Take Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="gelsToTakeBike"
+            id="field_gelsToTakeBike"
+            data-cy="gelsToTakeBike"
+            formControlName="gelsToTakeBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.sportDrinkToTakeRun" for="field_sportDrinkToTakeRun"
+            >Sport Drink To Take Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="sportDrinkToTakeRun"
+            id="field_sportDrinkToTakeRun"
+            data-cy="sportDrinkToTakeRun"
+            formControlName="sportDrinkToTakeRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.waterToTakeRun" for="field_waterToTakeRun"
+            >Water To Take Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="waterToTakeRun"
+            id="field_waterToTakeRun"
+            data-cy="waterToTakeRun"
+            formControlName="waterToTakeRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.extraWaterToTakeRun" for="field_extraWaterToTakeRun"
+            >Extra Water To Take Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="extraWaterToTakeRun"
+            id="field_extraWaterToTakeRun"
+            data-cy="extraWaterToTakeRun"
+            formControlName="extraWaterToTakeRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.orsToTakeRun" for="field_orsToTakeRun">Ors To Take Run</label>
+          <input
+            type="number"
+            class="form-control"
+            name="orsToTakeRun"
+            id="field_orsToTakeRun"
+            data-cy="orsToTakeRun"
+            formControlName="orsToTakeRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.carboNeedDuringBikeMin" for="field_carboNeedDuringBikeMin"
+            >Carbo Need During Bike Min</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="carboNeedDuringBikeMin"
+            id="field_carboNeedDuringBikeMin"
+            data-cy="carboNeedDuringBikeMin"
+            formControlName="carboNeedDuringBikeMin"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.carboNeedDuringBikeMax" for="field_carboNeedDuringBikeMax"
+            >Carbo Need During Bike Max</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="carboNeedDuringBikeMax"
+            id="field_carboNeedDuringBikeMax"
+            data-cy="carboNeedDuringBikeMax"
+            formControlName="carboNeedDuringBikeMax"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.carboNeedDuringRunMin" for="field_carboNeedDuringRunMin"
+            >Carbo Need During Run Min</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="carboNeedDuringRunMin"
+            id="field_carboNeedDuringRunMin"
+            data-cy="carboNeedDuringRunMin"
+            formControlName="carboNeedDuringRunMin"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.carboNeedDuringRunMax" for="field_carboNeedDuringRunMax"
+            >Carbo Need During Run Max</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="carboNeedDuringRunMax"
+            id="field_carboNeedDuringRunMax"
+            data-cy="carboNeedDuringRunMax"
+            formControlName="carboNeedDuringRunMax"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.diffCarboRun" for="field_diffCarboRun">Diff Carbo Run</label>
+          <input
+            type="number"
+            class="form-control"
+            name="diffCarboRun"
+            id="field_diffCarboRun"
+            data-cy="diffCarboRun"
+            formControlName="diffCarboRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.diffMoisterRun" for="field_diffMoisterRun"
+            >Diff Moister Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="diffMoisterRun"
+            id="field_diffMoisterRun"
+            data-cy="diffMoisterRun"
+            formControlName="diffMoisterRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.difCarbo" for="field_difCarbo">Dif Carbo</label>
+          <input type="number" class="form-control" name="difCarbo" id="field_difCarbo" data-cy="difCarbo" formControlName="difCarbo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.difMoister" for="field_difMoister">Dif Moister</label>
+          <input
+            type="number"
+            class="form-control"
+            name="difMoister"
+            id="field_difMoister"
+            data-cy="difMoister"
+            formControlName="difMoister"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.gelsToTakeRun" for="field_gelsToTakeRun"
+            >Gels To Take Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="gelsToTakeRun"
+            id="field_gelsToTakeRun"
+            data-cy="gelsToTakeRun"
+            formControlName="gelsToTakeRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.weightLossDuringBike" for="field_weightLossDuringBike"
+            >Weight Loss During Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="weightLossDuringBike"
+            id="field_weightLossDuringBike"
+            data-cy="weightLossDuringBike"
+            formControlName="weightLossDuringBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.carboNeedDuringRun" for="field_carboNeedDuringRun"
+            >Carbo Need During Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="carboNeedDuringRun"
+            id="field_carboNeedDuringRun"
+            data-cy="carboNeedDuringRun"
+            formControlName="carboNeedDuringRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourBike" for="field_fluidNeedPerHourBike"
+            >Fluid Need Per Hour Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fluidNeedPerHourBike"
+            id="field_fluidNeedPerHourBike"
+            data-cy="fluidNeedPerHourBike"
+            formControlName="fluidNeedPerHourBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourSwim" for="field_fluidNeedPerHourSwim"
+            >Fluid Need Per Hour Swim</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fluidNeedPerHourSwim"
+            id="field_fluidNeedPerHourSwim"
+            data-cy="fluidNeedPerHourSwim"
+            formControlName="fluidNeedPerHourSwim"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.carboNeedDuringBike" for="field_carboNeedDuringBike"
+            >Carbo Need During Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="carboNeedDuringBike"
+            id="field_carboNeedDuringBike"
+            data-cy="carboNeedDuringBike"
+            formControlName="carboNeedDuringBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.fluidNeedDuringBike" for="field_fluidNeedDuringBike"
+            >Fluid Need During Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fluidNeedDuringBike"
+            id="field_fluidNeedDuringBike"
+            data-cy="fluidNeedDuringBike"
+            formControlName="fluidNeedDuringBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourRun" for="field_fluidNeedPerHourRun"
+            >Fluid Need Per Hour Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fluidNeedPerHourRun"
+            id="field_fluidNeedPerHourRun"
+            data-cy="fluidNeedPerHourRun"
+            formControlName="fluidNeedPerHourRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.fluidNeedDuringRun" for="field_fluidNeedDuringRun"
+            >Fluid Need During Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="fluidNeedDuringRun"
+            id="field_fluidNeedDuringRun"
+            data-cy="fluidNeedDuringRun"
+            formControlName="fluidNeedDuringRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.weightLossDuringRun" for="field_weightLossDuringRun"
+            >Weight Loss During Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="weightLossDuringRun"
+            id="field_weightLossDuringRun"
+            data-cy="weightLossDuringRun"
+            formControlName="weightLossDuringRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.actFluidNeedBike" for="field_actFluidNeedBike"
+            >Act Fluid Need Bike</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="actFluidNeedBike"
+            id="field_actFluidNeedBike"
+            data-cy="actFluidNeedBike"
+            formControlName="actFluidNeedBike"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.actFluidNeedRun" for="field_actFluidNeedRun"
+            >Act Fluid Need Run</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="actFluidNeedRun"
+            id="field_actFluidNeedRun"
+            data-cy="actFluidNeedRun"
+            formControlName="actFluidNeedRun"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.race.athlete" for="field_athlete">Athlete</label>
+          <select class="form-control" id="field_athlete" data-cy="athlete" name="athlete" formControlName="athlete">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="athleteOption.id === editForm.get('athlete')!.value?.id ? editForm.get('athlete')!.value : athleteOption"
+              *ngFor="let athleteOption of athletesSharedCollection; trackBy: trackAthleteById"
+            >
+              {{ athleteOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

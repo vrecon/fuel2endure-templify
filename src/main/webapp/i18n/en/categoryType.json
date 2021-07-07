@@ -1,0 +1,9 @@
+{
+  "fuel2EndureApp": {
+    "CategoryType": {
+      "null": "",
+      "MUTIPLE": "MUTIPLE",
+      "SINGLE": "SINGLE"
+    }
+  }
+}

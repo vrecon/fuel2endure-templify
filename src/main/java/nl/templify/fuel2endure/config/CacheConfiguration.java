@@ -48,6 +48,18 @@ public class CacheConfiguration {
             createCache(cm, nl.templify.fuel2endure.domain.User.class.getName());
             createCache(cm, nl.templify.fuel2endure.domain.Authority.class.getName());
             createCache(cm, nl.templify.fuel2endure.domain.User.class.getName() + ".authorities");
+            createCache(cm, nl.templify.fuel2endure.domain.Athlete.class.getName());
+            createCache(cm, nl.templify.fuel2endure.domain.Athlete.class.getName() + ".races");
+            createCache(cm, nl.templify.fuel2endure.domain.Athlete.class.getName() + ".trainings");
+            createCache(cm, nl.templify.fuel2endure.domain.Athlete.class.getName() + ".payments");
+            createCache(cm, nl.templify.fuel2endure.domain.Payment.class.getName());
+            createCache(cm, nl.templify.fuel2endure.domain.FuelSettings.class.getName());
+            createCache(cm, nl.templify.fuel2endure.domain.Race.class.getName());
+            createCache(cm, nl.templify.fuel2endure.domain.Race.class.getName() + ".racePlanForms");
+            createCache(cm, nl.templify.fuel2endure.domain.RacePlanForm.class.getName());
+            createCache(cm, nl.templify.fuel2endure.domain.Training.class.getName());
+            createCache(cm, nl.templify.fuel2endure.domain.Voucher.class.getName());
+            createCache(cm, nl.templify.fuel2endure.domain.Voucher.class.getName() + ".athletes");
             // jhipster-needle-ehcache-add-entry
         };
     }

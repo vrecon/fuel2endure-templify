@@ -43,7 +43,9 @@
     "devServerPort": 4200,
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": ["Athlete", "Payment", "FuelSettings", "Race", "RacePlanForm", "Training", "Voucher"],
+    "lastLiquibaseTimestamp": 1625638102000
   },
   "git-provider": "GitHub",
   "git-company": "vrecon",

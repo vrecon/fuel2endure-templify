@@ -1,0 +1,84 @@
+<div>
+  <h2 id="page-heading" data-cy="FuelSettingsHeading">
+    <span jhiTranslate="fuel2EndureApp.fuelSettings.home.title">Fuel Settings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="fuel2EndureApp.fuelSettings.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-fuel-settings"
+        [routerLink]="['/fuel-settings/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="fuel2EndureApp.fuelSettings.home.createLabel"> Create a new Fuel Settings </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="fuelSettings?.length === 0">
+    <span jhiTranslate="fuel2EndureApp.fuelSettings.home.notFound">No fuelSettings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="fuelSettings && fuelSettings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.fuelSettings.carbohydratesGel">Carbohydrates Gel</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.fuelSettings.carbohydratesSportDrank">Carbohydrates Sport Drank</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.fuelSettings.selectedOwnGelItem">Selected Own Gel Item</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.fuelSettings.selectedOwnDrinkItem">Selected Own Drink Item</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fuelSettings of fuelSettings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/fuel-settings', fuelSettings.id, 'view']">{{ fuelSettings.id }}</a>
+          </td>
+          <td>{{ fuelSettings.carbohydratesGel }}</td>
+          <td>{{ fuelSettings.carbohydratesSportDrank }}</td>
+          <td>{{ fuelSettings.selectedOwnGelItem }}</td>
+          <td>{{ fuelSettings.selectedOwnDrinkItem }}</td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/fuel-settings', fuelSettings.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/fuel-settings', fuelSettings.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(fuelSettings)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

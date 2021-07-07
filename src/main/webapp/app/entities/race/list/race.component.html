@@ -1,0 +1,180 @@
+<div>
+  <h2 id="page-heading" data-cy="RaceHeading">
+    <span jhiTranslate="fuel2EndureApp.race.home.title">Races</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="fuel2EndureApp.race.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-race"
+        [routerLink]="['/race/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="fuel2EndureApp.race.home.createLabel"> Create a new Race </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="races?.length === 0">
+    <span jhiTranslate="fuel2EndureApp.race.home.notFound">No races found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="races && races.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.date">Date</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.logging">Logging</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.weight">Weight</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.length">Length</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.temperature">Temperature</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.comp">Comp</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.swimDuration">Swim Duration</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.bikeDuration">Bike Duration</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.runDuration">Run Duration</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelCarbo">Gel Carbo</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.drinkCarbo">Drink Carbo</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.drinkOrgCarbo">Drink Org Carbo</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelOrgCarbo">Gel Org Carbo</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelsbike">Gelsbike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelsrun">Gelsrun</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.selectedOrgGelQuery">Selected Org Gel Query</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.selectedOrgDrankQuery">Selected Org Drank Query</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.sportDrinkOrgBike">Sport Drink Org Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.waterOrgBike">Water Org Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelsOrgBike">Gels Org Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.sportDrinkOrgRun">Sport Drink Org Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.waterOrgRun">Water Org Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelsOrgRun">Gels Org Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.orsBeforeStart">Ors Before Start</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.sportDrinkToTakeBike">Sport Drink To Take Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.waterToTakeBike">Water To Take Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.extraWaterToTakeBike">Extra Water To Take Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.orsToTakeBike">Ors To Take Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelsToTakeBike">Gels To Take Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.sportDrinkToTakeRun">Sport Drink To Take Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.waterToTakeRun">Water To Take Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.extraWaterToTakeRun">Extra Water To Take Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.orsToTakeRun">Ors To Take Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringBikeMin">Carbo Need During Bike Min</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringBikeMax">Carbo Need During Bike Max</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringRunMin">Carbo Need During Run Min</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringRunMax">Carbo Need During Run Max</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.diffCarboRun">Diff Carbo Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.diffMoisterRun">Diff Moister Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.difCarbo">Dif Carbo</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.difMoister">Dif Moister</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.gelsToTakeRun">Gels To Take Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.weightLossDuringBike">Weight Loss During Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringRun">Carbo Need During Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourBike">Fluid Need Per Hour Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourSwim">Fluid Need Per Hour Swim</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringBike">Carbo Need During Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.fluidNeedDuringBike">Fluid Need During Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourRun">Fluid Need Per Hour Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.fluidNeedDuringRun">Fluid Need During Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.weightLossDuringRun">Weight Loss During Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.actFluidNeedBike">Act Fluid Need Bike</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.actFluidNeedRun">Act Fluid Need Run</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.race.athlete">Athlete</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let race of races; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/race', race.id, 'view']">{{ race.id }}</a>
+          </td>
+          <td>{{ race.date | formatMediumDate }}</td>
+          <td>{{ race.name }}</td>
+          <td>{{ race.logging }}</td>
+          <td>{{ race.weight }}</td>
+          <td>{{ race.length }}</td>
+          <td>{{ race.temperature }}</td>
+          <td>{{ race.comp }}</td>
+          <td>{{ race.swimDuration }}</td>
+          <td>{{ race.bikeDuration }}</td>
+          <td>{{ race.runDuration }}</td>
+          <td>{{ race.gelCarbo }}</td>
+          <td>{{ race.drinkCarbo }}</td>
+          <td>{{ race.drinkOrgCarbo }}</td>
+          <td>{{ race.gelOrgCarbo }}</td>
+          <td>{{ race.gelsbike }}</td>
+          <td>{{ race.gelsrun }}</td>
+          <td>{{ race.selectedOrgGelQuery }}</td>
+          <td>{{ race.selectedOrgDrankQuery }}</td>
+          <td>{{ race.sportDrinkOrgBike }}</td>
+          <td>{{ race.waterOrgBike }}</td>
+          <td>{{ race.gelsOrgBike }}</td>
+          <td>{{ race.sportDrinkOrgRun }}</td>
+          <td>{{ race.waterOrgRun }}</td>
+          <td>{{ race.gelsOrgRun }}</td>
+          <td>{{ race.orsBeforeStart }}</td>
+          <td>{{ race.sportDrinkToTakeBike }}</td>
+          <td>{{ race.waterToTakeBike }}</td>
+          <td>{{ race.extraWaterToTakeBike }}</td>
+          <td>{{ race.orsToTakeBike }}</td>
+          <td>{{ race.gelsToTakeBike }}</td>
+          <td>{{ race.sportDrinkToTakeRun }}</td>
+          <td>{{ race.waterToTakeRun }}</td>
+          <td>{{ race.extraWaterToTakeRun }}</td>
+          <td>{{ race.orsToTakeRun }}</td>
+          <td>{{ race.carboNeedDuringBikeMin }}</td>
+          <td>{{ race.carboNeedDuringBikeMax }}</td>
+          <td>{{ race.carboNeedDuringRunMin }}</td>
+          <td>{{ race.carboNeedDuringRunMax }}</td>
+          <td>{{ race.diffCarboRun }}</td>
+          <td>{{ race.diffMoisterRun }}</td>
+          <td>{{ race.difCarbo }}</td>
+          <td>{{ race.difMoister }}</td>
+          <td>{{ race.gelsToTakeRun }}</td>
+          <td>{{ race.weightLossDuringBike }}</td>
+          <td>{{ race.carboNeedDuringRun }}</td>
+          <td>{{ race.fluidNeedPerHourBike }}</td>
+          <td>{{ race.fluidNeedPerHourSwim }}</td>
+          <td>{{ race.carboNeedDuringBike }}</td>
+          <td>{{ race.fluidNeedDuringBike }}</td>
+          <td>{{ race.fluidNeedPerHourRun }}</td>
+          <td>{{ race.fluidNeedDuringRun }}</td>
+          <td>{{ race.weightLossDuringRun }}</td>
+          <td>{{ race.actFluidNeedBike }}</td>
+          <td>{{ race.actFluidNeedRun }}</td>
+          <td>
+            <div *ngIf="race.athlete">
+              <a [routerLink]="['/athlete', race.athlete?.id, 'view']">{{ race.athlete?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/race', race.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/race', race.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(race)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

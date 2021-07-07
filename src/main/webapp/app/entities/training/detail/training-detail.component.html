@@ -1,0 +1,98 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="training">
+      <h2 data-cy="trainingDetailsHeading"><span jhiTranslate="fuel2EndureApp.training.detail.title">Training</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ training.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.date">Date</span></dt>
+        <dd>
+          <span>{{ training.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.trainingTypeCode">Training Type Code</span></dt>
+        <dd>
+          <span>{{ training.trainingTypeCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.duration">Duration</span></dt>
+        <dd>
+          <span>{{ training.duration }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.trainingIntensityCode">Training Intensity Code</span></dt>
+        <dd>
+          <span>{{ training.trainingIntensityCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.temperature">Temperature</span></dt>
+        <dd>
+          <span>{{ training.temperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.weightBefore">Weight Before</span></dt>
+        <dd>
+          <span>{{ training.weightBefore }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.weightAfter">Weight After</span></dt>
+        <dd>
+          <span>{{ training.weightAfter }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.drunk">Drunk</span></dt>
+        <dd>
+          <span>{{ training.drunk }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.eaten">Eaten</span></dt>
+        <dd>
+          <span>{{ training.eaten }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.moistureLossPercentage">Moisture Loss Percentage</span></dt>
+        <dd>
+          <span>{{ training.moistureLossPercentage }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.moistureLossPerHour">Moisture Loss Per Hour</span></dt>
+        <dd>
+          <span>{{ training.moistureLossPerHour }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.defaultMoisterLossPerHour">Default Moister Loss Per Hour</span></dt>
+        <dd>
+          <span>{{ training.defaultMoisterLossPerHour }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.deltaMoisterLossPerHour">Delta Moister Loss Per Hour</span></dt>
+        <dd>
+          <span>{{ training.deltaMoisterLossPerHour }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.excluded">Excluded</span></dt>
+        <dd>
+          <span>{{ training.excluded }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.comments">Comments</span></dt>
+        <dd>
+          <span>{{ training.comments }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.carboDrank">Carbo Drank</span></dt>
+        <dd>
+          <span>{{ training.carboDrank }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.training.athlete">Athlete</span></dt>
+        <dd>
+          <div *ngIf="training.athlete">
+            <a [routerLink]="['/athlete', training.athlete?.id, 'view']">{{ training.athlete?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/training', training.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

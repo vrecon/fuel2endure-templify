@@ -1,0 +1,87 @@
+{
+  "name": "Training",
+  "fields": [
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "trainingTypeCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "duration",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "trainingIntensityCode",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "temperature",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weightBefore",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "weightAfter",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "drunk",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "eaten",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "moistureLossPercentage",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "moistureLossPerHour",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "defaultMoisterLossPerHour",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "deltaMoisterLossPerHour",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "excluded",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "carboDrank",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "athlete",
+      "otherEntityRelationshipName": "training",
+      "relationshipName": "athlete"
+    }
+  ],
+  "entityTableName": "training",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210707060821"
+}
