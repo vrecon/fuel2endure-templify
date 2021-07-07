@@ -1,0 +1,207 @@
+{
+  "name": "RacePlanForm",
+  "fields": [
+    {
+      "fieldName": "comp",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "selectedOrgGelQuery",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "selectedOrgDrankQuery",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "orsBeforeStart",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "drinkCarbo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gelCarbo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "drinkOrgCarbo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gelOrgCarbo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sportDrinkOrgBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "waterOrgBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gelsOrgBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sportDrinkOrgRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "waterOrgRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gelsOrgRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sportDrinkToTakeBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "waterToTakeBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "extraWaterToTakeBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "orsToTakeBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gelsToTakeBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sportDrinkToTakeRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "waterToTakeRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "extraWaterToTakeRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "orsToTakeRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "gelsToTakeRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weightLossDuringBike",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "carboNeedDuringRun",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "fluidNeedPerHourBike",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fluidNeedPerHourSwim",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "carboNeedDuringBike",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fluidNeedDuringBike",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "fluidNeedPerHourRun",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "fluidNeedDuringRun",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "weightLossDuringRun",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "diffCarboRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "diffMoisterRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "difCarbo",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "difMoister",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "actFluidNeedBike",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "actFluidNeedRun",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "carboNeedDuringBikeMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "carboNeedDuringBikeMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "carboNeedDuringRunMin",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "carboNeedDuringRunMax",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "startGel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "startDrank",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "race",
+      "otherEntityRelationshipName": "racePlanForm",
+      "relationshipName": "race"
+    }
+  ],
+  "entityTableName": "race_plan_form",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210707060820"
+}

@@ -1,0 +1,231 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-training-heading" data-cy="TrainingCreateUpdateHeading" jhiTranslate="fuel2EndureApp.training.home.createOrEditLabel">
+        Create or edit a Training
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.date" for="field_date">Date</label>
+          <div class="input-group">
+            <input
+              id="field_date"
+              data-cy="date"
+              type="text"
+              class="form-control"
+              name="date"
+              ngbDatepicker
+              #dateDp="ngbDatepicker"
+              formControlName="date"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.trainingTypeCode" for="field_trainingTypeCode"
+            >Training Type Code</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="trainingTypeCode"
+            id="field_trainingTypeCode"
+            data-cy="trainingTypeCode"
+            formControlName="trainingTypeCode"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.duration" for="field_duration">Duration</label>
+          <input type="number" class="form-control" name="duration" id="field_duration" data-cy="duration" formControlName="duration" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.trainingIntensityCode" for="field_trainingIntensityCode"
+            >Training Intensity Code</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="trainingIntensityCode"
+            id="field_trainingIntensityCode"
+            data-cy="trainingIntensityCode"
+            formControlName="trainingIntensityCode"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.temperature" for="field_temperature">Temperature</label>
+          <input
+            type="number"
+            class="form-control"
+            name="temperature"
+            id="field_temperature"
+            data-cy="temperature"
+            formControlName="temperature"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.weightBefore" for="field_weightBefore"
+            >Weight Before</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="weightBefore"
+            id="field_weightBefore"
+            data-cy="weightBefore"
+            formControlName="weightBefore"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.weightAfter" for="field_weightAfter">Weight After</label>
+          <input
+            type="number"
+            class="form-control"
+            name="weightAfter"
+            id="field_weightAfter"
+            data-cy="weightAfter"
+            formControlName="weightAfter"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.drunk" for="field_drunk">Drunk</label>
+          <input type="number" class="form-control" name="drunk" id="field_drunk" data-cy="drunk" formControlName="drunk" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.eaten" for="field_eaten">Eaten</label>
+          <input type="number" class="form-control" name="eaten" id="field_eaten" data-cy="eaten" formControlName="eaten" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.moistureLossPercentage" for="field_moistureLossPercentage"
+            >Moisture Loss Percentage</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="moistureLossPercentage"
+            id="field_moistureLossPercentage"
+            data-cy="moistureLossPercentage"
+            formControlName="moistureLossPercentage"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.moistureLossPerHour" for="field_moistureLossPerHour"
+            >Moisture Loss Per Hour</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="moistureLossPerHour"
+            id="field_moistureLossPerHour"
+            data-cy="moistureLossPerHour"
+            formControlName="moistureLossPerHour"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="fuel2EndureApp.training.defaultMoisterLossPerHour"
+            for="field_defaultMoisterLossPerHour"
+            >Default Moister Loss Per Hour</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="defaultMoisterLossPerHour"
+            id="field_defaultMoisterLossPerHour"
+            data-cy="defaultMoisterLossPerHour"
+            formControlName="defaultMoisterLossPerHour"
+          />
+        </div>
+
+        <div class="form-group">
+          <label
+            class="form-control-label"
+            jhiTranslate="fuel2EndureApp.training.deltaMoisterLossPerHour"
+            for="field_deltaMoisterLossPerHour"
+            >Delta Moister Loss Per Hour</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="deltaMoisterLossPerHour"
+            id="field_deltaMoisterLossPerHour"
+            data-cy="deltaMoisterLossPerHour"
+            formControlName="deltaMoisterLossPerHour"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.excluded" for="field_excluded">Excluded</label>
+          <input type="checkbox" class="form-check" name="excluded" id="field_excluded" data-cy="excluded" formControlName="excluded" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.comments" for="field_comments">Comments</label>
+          <input type="text" class="form-control" name="comments" id="field_comments" data-cy="comments" formControlName="comments" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.carboDrank" for="field_carboDrank">Carbo Drank</label>
+          <input
+            type="number"
+            class="form-control"
+            name="carboDrank"
+            id="field_carboDrank"
+            data-cy="carboDrank"
+            formControlName="carboDrank"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.training.athlete" for="field_athlete">Athlete</label>
+          <select class="form-control" id="field_athlete" data-cy="athlete" name="athlete" formControlName="athlete">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="athleteOption.id === editForm.get('athlete')!.value?.id ? editForm.get('athlete')!.value : athleteOption"
+              *ngFor="let athleteOption of athletesSharedCollection; trackBy: trackAthleteById"
+            >
+              {{ athleteOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

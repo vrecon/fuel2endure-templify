@@ -1,0 +1,250 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="race">
+      <h2 data-cy="raceDetailsHeading"><span jhiTranslate="fuel2EndureApp.race.detail.title">Race</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ race.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.date">Date</span></dt>
+        <dd>
+          <span>{{ race.date | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.name">Name</span></dt>
+        <dd>
+          <span>{{ race.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.logging">Logging</span></dt>
+        <dd>
+          <span>{{ race.logging }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.weight">Weight</span></dt>
+        <dd>
+          <span>{{ race.weight }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.length">Length</span></dt>
+        <dd>
+          <span>{{ race.length }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.temperature">Temperature</span></dt>
+        <dd>
+          <span>{{ race.temperature }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.comp">Comp</span></dt>
+        <dd>
+          <span>{{ race.comp }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.swimDuration">Swim Duration</span></dt>
+        <dd>
+          <span>{{ race.swimDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.bikeDuration">Bike Duration</span></dt>
+        <dd>
+          <span>{{ race.bikeDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.runDuration">Run Duration</span></dt>
+        <dd>
+          <span>{{ race.runDuration }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelCarbo">Gel Carbo</span></dt>
+        <dd>
+          <span>{{ race.gelCarbo }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.drinkCarbo">Drink Carbo</span></dt>
+        <dd>
+          <span>{{ race.drinkCarbo }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.drinkOrgCarbo">Drink Org Carbo</span></dt>
+        <dd>
+          <span>{{ race.drinkOrgCarbo }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelOrgCarbo">Gel Org Carbo</span></dt>
+        <dd>
+          <span>{{ race.gelOrgCarbo }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelsbike">Gelsbike</span></dt>
+        <dd>
+          <span>{{ race.gelsbike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelsrun">Gelsrun</span></dt>
+        <dd>
+          <span>{{ race.gelsrun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.selectedOrgGelQuery">Selected Org Gel Query</span></dt>
+        <dd>
+          <span>{{ race.selectedOrgGelQuery }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.selectedOrgDrankQuery">Selected Org Drank Query</span></dt>
+        <dd>
+          <span>{{ race.selectedOrgDrankQuery }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.sportDrinkOrgBike">Sport Drink Org Bike</span></dt>
+        <dd>
+          <span>{{ race.sportDrinkOrgBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.waterOrgBike">Water Org Bike</span></dt>
+        <dd>
+          <span>{{ race.waterOrgBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelsOrgBike">Gels Org Bike</span></dt>
+        <dd>
+          <span>{{ race.gelsOrgBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.sportDrinkOrgRun">Sport Drink Org Run</span></dt>
+        <dd>
+          <span>{{ race.sportDrinkOrgRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.waterOrgRun">Water Org Run</span></dt>
+        <dd>
+          <span>{{ race.waterOrgRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelsOrgRun">Gels Org Run</span></dt>
+        <dd>
+          <span>{{ race.gelsOrgRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.orsBeforeStart">Ors Before Start</span></dt>
+        <dd>
+          <span>{{ race.orsBeforeStart }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.sportDrinkToTakeBike">Sport Drink To Take Bike</span></dt>
+        <dd>
+          <span>{{ race.sportDrinkToTakeBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.waterToTakeBike">Water To Take Bike</span></dt>
+        <dd>
+          <span>{{ race.waterToTakeBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.extraWaterToTakeBike">Extra Water To Take Bike</span></dt>
+        <dd>
+          <span>{{ race.extraWaterToTakeBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.orsToTakeBike">Ors To Take Bike</span></dt>
+        <dd>
+          <span>{{ race.orsToTakeBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelsToTakeBike">Gels To Take Bike</span></dt>
+        <dd>
+          <span>{{ race.gelsToTakeBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.sportDrinkToTakeRun">Sport Drink To Take Run</span></dt>
+        <dd>
+          <span>{{ race.sportDrinkToTakeRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.waterToTakeRun">Water To Take Run</span></dt>
+        <dd>
+          <span>{{ race.waterToTakeRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.extraWaterToTakeRun">Extra Water To Take Run</span></dt>
+        <dd>
+          <span>{{ race.extraWaterToTakeRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.orsToTakeRun">Ors To Take Run</span></dt>
+        <dd>
+          <span>{{ race.orsToTakeRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringBikeMin">Carbo Need During Bike Min</span></dt>
+        <dd>
+          <span>{{ race.carboNeedDuringBikeMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringBikeMax">Carbo Need During Bike Max</span></dt>
+        <dd>
+          <span>{{ race.carboNeedDuringBikeMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringRunMin">Carbo Need During Run Min</span></dt>
+        <dd>
+          <span>{{ race.carboNeedDuringRunMin }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringRunMax">Carbo Need During Run Max</span></dt>
+        <dd>
+          <span>{{ race.carboNeedDuringRunMax }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.diffCarboRun">Diff Carbo Run</span></dt>
+        <dd>
+          <span>{{ race.diffCarboRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.diffMoisterRun">Diff Moister Run</span></dt>
+        <dd>
+          <span>{{ race.diffMoisterRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.difCarbo">Dif Carbo</span></dt>
+        <dd>
+          <span>{{ race.difCarbo }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.difMoister">Dif Moister</span></dt>
+        <dd>
+          <span>{{ race.difMoister }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.gelsToTakeRun">Gels To Take Run</span></dt>
+        <dd>
+          <span>{{ race.gelsToTakeRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.weightLossDuringBike">Weight Loss During Bike</span></dt>
+        <dd>
+          <span>{{ race.weightLossDuringBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringRun">Carbo Need During Run</span></dt>
+        <dd>
+          <span>{{ race.carboNeedDuringRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourBike">Fluid Need Per Hour Bike</span></dt>
+        <dd>
+          <span>{{ race.fluidNeedPerHourBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourSwim">Fluid Need Per Hour Swim</span></dt>
+        <dd>
+          <span>{{ race.fluidNeedPerHourSwim }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.carboNeedDuringBike">Carbo Need During Bike</span></dt>
+        <dd>
+          <span>{{ race.carboNeedDuringBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.fluidNeedDuringBike">Fluid Need During Bike</span></dt>
+        <dd>
+          <span>{{ race.fluidNeedDuringBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.fluidNeedPerHourRun">Fluid Need Per Hour Run</span></dt>
+        <dd>
+          <span>{{ race.fluidNeedPerHourRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.fluidNeedDuringRun">Fluid Need During Run</span></dt>
+        <dd>
+          <span>{{ race.fluidNeedDuringRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.weightLossDuringRun">Weight Loss During Run</span></dt>
+        <dd>
+          <span>{{ race.weightLossDuringRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.actFluidNeedBike">Act Fluid Need Bike</span></dt>
+        <dd>
+          <span>{{ race.actFluidNeedBike }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.actFluidNeedRun">Act Fluid Need Run</span></dt>
+        <dd>
+          <span>{{ race.actFluidNeedRun }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.race.athlete">Athlete</span></dt>
+        <dd>
+          <div *ngIf="race.athlete">
+            <a [routerLink]="['/athlete', race.athlete?.id, 'view']">{{ race.athlete?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/race', race.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

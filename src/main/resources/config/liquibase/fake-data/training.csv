@@ -1,0 +1,11 @@
+id;date;training_type_code;duration;training_intensity_code;temperature;weight_before;weight_after;drunk;eaten;moisture_loss_percentage;moisture_loss_per_hour;default_moister_loss_per_hour;delta_moister_loss_per_hour;excluded;comments;carbo_drank
+1;2021-07-07;Coordinator;97519;4651;93022;71868;31998;47891;12366;20282;3925;21804;53623;false;Baby;5499
+2;2021-07-06;ivoor;99429;47747;14940;5151;3244;35838;40409;84713;41370;93253;93338;true;deposit;37229
+3;2021-07-06;Limburg;38711;40326;5525;57238;57833;89978;82584;62784;55760;19536;26118;false;eco-centric Beton heuristic;12310
+4;2021-07-06;hybrid;298;3502;18075;54482;41146;19620;68780;39831;82229;46395;14327;true;digitale;57435
+5;2021-07-06;supply-chains Marketing migration;77758;69276;61859;54131;14429;69347;97993;43229;49741;83840;63176;true;matrix Shirt;81027
+6;2021-07-06;Drenthe transmitting payment;27395;1384;25254;49833;26084;60763;77323;5924;6349;67138;71026;false;berekenen harde Kinderen;10064
+7;2021-07-06;intuitive programmeren;64176;31187;78036;82391;43970;25545;46785;70364;21229;84908;30873;true;Intelligent;95662
+8;2021-07-06;payment Consultant;29251;61489;88557;73743;56271;12917;6279;58;86001;34368;95218;false;Coordinator Investor ROI;43933
+9;2021-07-06;gracht Bevroren Dhekelia;1239;60465;69884;43746;20238;38512;60190;88254;68103;58300;33368;false;Dinar kastanjebruin;73932
+10;2021-07-06;snijden relationships;6414;32092;82918;11564;38579;15157;344;21882;61153;75500;57029;false;Kaasschaaf azuurblauw straat;50369

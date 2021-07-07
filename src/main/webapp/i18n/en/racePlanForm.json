@@ -1,0 +1,70 @@
+{
+  "fuel2EndureApp": {
+    "racePlanForm": {
+      "home": {
+        "title": "Race Plan Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Race Plan Form",
+        "createOrEditLabel": "Create or edit a Race Plan Form",
+        "notFound": "No Race Plan Forms found"
+      },
+      "created": "A new Race Plan Form is created with identifier {{ param }}",
+      "updated": "A Race Plan Form is updated with identifier {{ param }}",
+      "deleted": "A Race Plan Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Race Plan Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Race Plan Form"
+      },
+      "id": "ID",
+      "comp": "Comp",
+      "name": "Name",
+      "selectedOrgGelQuery": "Selected Org Gel Query",
+      "selectedOrgDrankQuery": "Selected Org Drank Query",
+      "orsBeforeStart": "Ors Before Start",
+      "drinkCarbo": "Drink Carbo",
+      "gelCarbo": "Gel Carbo",
+      "drinkOrgCarbo": "Drink Org Carbo",
+      "gelOrgCarbo": "Gel Org Carbo",
+      "sportDrinkOrgBike": "Sport Drink Org Bike",
+      "waterOrgBike": "Water Org Bike",
+      "gelsOrgBike": "Gels Org Bike",
+      "sportDrinkOrgRun": "Sport Drink Org Run",
+      "waterOrgRun": "Water Org Run",
+      "gelsOrgRun": "Gels Org Run",
+      "sportDrinkToTakeBike": "Sport Drink To Take Bike",
+      "waterToTakeBike": "Water To Take Bike",
+      "extraWaterToTakeBike": "Extra Water To Take Bike",
+      "orsToTakeBike": "Ors To Take Bike",
+      "gelsToTakeBike": "Gels To Take Bike",
+      "sportDrinkToTakeRun": "Sport Drink To Take Run",
+      "waterToTakeRun": "Water To Take Run",
+      "extraWaterToTakeRun": "Extra Water To Take Run",
+      "orsToTakeRun": "Ors To Take Run",
+      "gelsToTakeRun": "Gels To Take Run",
+      "weightLossDuringBike": "Weight Loss During Bike",
+      "carboNeedDuringRun": "Carbo Need During Run",
+      "fluidNeedPerHourBike": "Fluid Need Per Hour Bike",
+      "fluidNeedPerHourSwim": "Fluid Need Per Hour Swim",
+      "carboNeedDuringBike": "Carbo Need During Bike",
+      "fluidNeedDuringBike": "Fluid Need During Bike",
+      "fluidNeedPerHourRun": "Fluid Need Per Hour Run",
+      "fluidNeedDuringRun": "Fluid Need During Run",
+      "weightLossDuringRun": "Weight Loss During Run",
+      "diffCarboRun": "Diff Carbo Run",
+      "diffMoisterRun": "Diff Moister Run",
+      "difCarbo": "Dif Carbo",
+      "difMoister": "Dif Moister",
+      "actFluidNeedBike": "Act Fluid Need Bike",
+      "actFluidNeedRun": "Act Fluid Need Run",
+      "carboNeedDuringBikeMin": "Carbo Need During Bike Min",
+      "carboNeedDuringBikeMax": "Carbo Need During Bike Max",
+      "carboNeedDuringRunMin": "Carbo Need During Run Min",
+      "carboNeedDuringRunMax": "Carbo Need During Run Max",
+      "startGel": "Start Gel",
+      "startDrank": "Start Drank",
+      "race": "Race"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "name": "Athlete",
+  "fields": [
+    {
+      "fieldName": "middleName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "length",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "fuelSettings",
+      "otherEntityRelationshipName": "athlete",
+      "relationshipName": "fuelSettings",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "athlete",
+      "relationshipName": "internalUser",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "race",
+      "otherEntityRelationshipName": "athlete",
+      "relationshipName": "race"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "training",
+      "otherEntityRelationshipName": "athlete",
+      "relationshipName": "training"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "payment",
+      "otherEntityRelationshipName": "athlete",
+      "relationshipName": "payment"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "voucher",
+      "otherEntityRelationshipName": "athlete",
+      "relationshipName": "voucher"
+    }
+  ],
+  "entityTableName": "athlete",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210707060816"
+}

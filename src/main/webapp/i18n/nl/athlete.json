@@ -1,0 +1,33 @@
+{
+  "fuel2EndureApp": {
+    "athlete": {
+      "home": {
+        "title": "Athletes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Maak een nieuwe Athlete",
+        "createOrEditLabel": "Maak of wijzig een Athlete",
+        "notFound": "No Athletes found"
+      },
+      "created": "A new Athlete is created with identifier {{ param }}",
+      "updated": "A Athlete is updated with identifier {{ param }}",
+      "deleted": "A Athlete is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Athlete {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Athlete"
+      },
+      "id": "ID",
+      "middleName": "Middle Name",
+      "length": "Length",
+      "weight": "Weight",
+      "status": "Status",
+      "fuelSettings": "Fuel Settings",
+      "internalUser": "Internal User",
+      "race": "Race",
+      "training": "Training",
+      "payment": "Payment",
+      "voucher": "Voucher"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="payment">
+      <h2 data-cy="paymentDetailsHeading"><span jhiTranslate="fuel2EndureApp.payment.detail.title">Payment</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ payment.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.payment.paymentDate">Payment Date</span></dt>
+        <dd>
+          <span>{{ payment.paymentDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.payment.paymentStatus">Payment Status</span></dt>
+        <dd>
+          <span>{{ payment.paymentStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.payment.mollieKey">Mollie Key</span></dt>
+        <dd>
+          <span>{{ payment.mollieKey }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.payment.athlete">Athlete</span></dt>
+        <dd>
+          <div *ngIf="payment.athlete">
+            <a [routerLink]="['/athlete', payment.athlete?.id, 'view']">{{ payment.athlete?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/payment', payment.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "fuel2EndureApp": {
+    "fuelSettings": {
+      "home": {
+        "title": "Fuel Settings",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fuel Settings",
+        "createOrEditLabel": "Create or edit a Fuel Settings",
+        "notFound": "No Fuel Settings found"
+      },
+      "created": "A new Fuel Settings is created with identifier {{ param }}",
+      "updated": "A Fuel Settings is updated with identifier {{ param }}",
+      "deleted": "A Fuel Settings is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fuel Settings {{ id }}?"
+      },
+      "detail": {
+        "title": "Fuel Settings"
+      },
+      "id": "ID",
+      "carbohydratesGel": "Carbohydrates Gel",
+      "carbohydratesSportDrank": "Carbohydrates Sport Drank",
+      "selectedOwnGelItem": "Selected Own Gel Item",
+      "selectedOwnDrinkItem": "Selected Own Drink Item"
+    }
+  }
+}

@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-voucher-heading" data-cy="VoucherCreateUpdateHeading" jhiTranslate="fuel2EndureApp.voucher.home.createOrEditLabel">
+        Create or edit a Voucher
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.voucher.code" for="field_code">Code</label>
+          <input type="text" class="form-control" name="code" id="field_code" data-cy="code" formControlName="code" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.voucher.voucherType" for="field_voucherType">Voucher Type</label>
+          <input
+            type="text"
+            class="form-control"
+            name="voucherType"
+            id="field_voucherType"
+            data-cy="voucherType"
+            formControlName="voucherType"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.voucher.redeemed" for="field_redeemed">Redeemed</label>
+          <input type="number" class="form-control" name="redeemed" id="field_redeemed" data-cy="redeemed" formControlName="redeemed" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.voucher.maxDate" for="field_maxDate">Max Date</label>
+          <div class="input-group">
+            <input
+              id="field_maxDate"
+              data-cy="maxDate"
+              type="text"
+              class="form-control"
+              name="maxDate"
+              ngbDatepicker
+              #maxDateDp="ngbDatepicker"
+              formControlName="maxDate"
+            />
+            <span class="input-group-append">
+              <button type="button" class="btn btn-secondary" (click)="maxDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.voucher.amount" for="field_amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.voucher.maxRedeemed" for="field_maxRedeemed">Max Redeemed</label>
+          <input
+            type="number"
+            class="form-control"
+            name="maxRedeemed"
+            id="field_maxRedeemed"
+            data-cy="maxRedeemed"
+            formControlName="maxRedeemed"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.voucher.category" for="field_category">Category</label>
+          <select class="form-control" name="category" formControlName="category" id="field_category" data-cy="category">
+            <option [ngValue]="null">{{ 'fuel2EndureApp.CategoryType.null' | translate }}</option>
+            <option value="MUTIPLE">{{ 'fuel2EndureApp.CategoryType.MUTIPLE' | translate }}</option>
+            <option value="SINGLE">{{ 'fuel2EndureApp.CategoryType.SINGLE' | translate }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="athlete">
+      <h2 data-cy="athleteDetailsHeading"><span jhiTranslate="fuel2EndureApp.athlete.detail.title">Athlete</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ athlete.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.athlete.middleName">Middle Name</span></dt>
+        <dd>
+          <span>{{ athlete.middleName }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.athlete.length">Length</span></dt>
+        <dd>
+          <span>{{ athlete.length }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.athlete.weight">Weight</span></dt>
+        <dd>
+          <span>{{ athlete.weight }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.athlete.status">Status</span></dt>
+        <dd>
+          <span>{{ athlete.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.athlete.fuelSettings">Fuel Settings</span></dt>
+        <dd>
+          <div *ngIf="athlete.fuelSettings">
+            <a [routerLink]="['/fuel-settings', athlete.fuelSettings?.id, 'view']">{{ athlete.fuelSettings?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.athlete.internalUser">Internal User</span></dt>
+        <dd>
+          <span>{{ athlete.internalUser?.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="fuel2EndureApp.athlete.voucher">Voucher</span></dt>
+        <dd>
+          <div *ngIf="athlete.voucher">
+            <a [routerLink]="['/voucher', athlete.voucher?.id, 'view']">{{ athlete.voucher?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/athlete', athlete.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

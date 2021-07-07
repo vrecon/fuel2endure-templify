@@ -1,0 +1,178 @@
+entity Athlete {
+	  middleName String,
+      length Integer,
+	  weight Float,
+     status String
+}
+
+entity Payment {
+	   	   paymentDate String,
+           paymentStatus String,
+            mollieKey String,
+}
+
+entity FuelSettings {
+    carbohydratesGel Integer,
+	carbohydratesSportDrank Integer,
+    selectedOwnGelItem Integer,
+	selectedOwnDrinkItem Integer,
+}
+
+entity Race {
+      date LocalDate,
+	  name String,
+	  logging String,
+	  weight Integer,
+	  length Integer,
+	  temperature Integer,
+	  comp Integer,
+	  swimDuration Integer,
+	  bikeDuration Integer,
+	  runDuration Integer,
+	  gelCarbo Integer,
+	  drinkCarbo Integer,
+	  drinkOrgCarbo Integer,
+	  gelOrgCarbo Integer,
+	  gelsbike Integer,
+	  gelsrun Integer,
+	  selectedOrgGelQuery Boolean,
+	  selectedOrgDrankQuery Boolean,
+	 sportDrinkOrgBike Integer,
+	 waterOrgBike Integer,
+	 gelsOrgBike Integer,
+	 sportDrinkOrgRun Integer,
+	 waterOrgRun Integer,
+	 gelsOrgRun Integer,
+	 orsBeforeStart Integer,
+	  sportDrinkToTakeBike Integer,
+	  waterToTakeBike Integer,
+	  extraWaterToTakeBike Integer,
+	  orsToTakeBike Integer,
+	  gelsToTakeBike Integer,
+	  sportDrinkToTakeRun Integer,
+	  waterToTakeRun Integer,
+	  extraWaterToTakeRun Integer,
+	  orsToTakeRun Integer,
+	  carboNeedDuringBikeMin Integer,
+	  carboNeedDuringBikeMax Integer,
+	  carboNeedDuringRunMin Integer,
+	  carboNeedDuringRunMax Integer,
+	  diffCarboRun Integer,
+	  diffMoisterRun Integer,
+	  difCarbo Integer,
+	  difMoister Integer,
+	  gelsToTakeRun Integer,
+	  weightLossDuringBike Float,
+	  carboNeedDuringRun Float,
+	  fluidNeedPerHourBike Double,
+	  fluidNeedPerHourSwim Double,
+	  carboNeedDuringBike Double,
+	  fluidNeedDuringBike Long,
+	  fluidNeedPerHourRun Double,
+	  fluidNeedDuringRun Long,
+	  weightLossDuringRun Float,
+	  actFluidNeedBike Integer,
+	  actFluidNeedRun Integer
+}
+
+entity RacePlanForm {
+	  comp String,
+	  name String,
+      selectedOrgGelQuery Boolean,
+	  selectedOrgDrankQuery Boolean,
+	  orsBeforeStart Integer,
+	  drinkCarbo Integer,
+	  gelCarbo Integer,
+	  drinkOrgCarbo Integer,
+	  gelOrgCarbo Integer,
+	  sportDrinkOrgBike Integer,
+	  waterOrgBike Integer,
+	  gelsOrgBike Integer,
+	  sportDrinkOrgRun Integer,
+	  waterOrgRun Integer,
+	  gelsOrgRun Integer,
+	  sportDrinkToTakeBike Integer,
+	  waterToTakeBike Integer,
+	  extraWaterToTakeBike Integer,
+	  orsToTakeBike Integer,
+	  gelsToTakeBike Integer,
+	  sportDrinkToTakeRun Integer,
+	  waterToTakeRun Integer,
+	  extraWaterToTakeRun Integer,
+	  orsToTakeRun Integer,
+	  gelsToTakeRun Integer,
+	  weightLossDuringBike Float,
+	  carboNeedDuringRun Float,
+	  fluidNeedPerHourBike Double,
+	  fluidNeedPerHourSwim Double,
+	  carboNeedDuringBike Double,
+	  fluidNeedDuringBike Long,
+	  fluidNeedPerHourRun Double,
+	  fluidNeedDuringRun Long,
+	  weightLossDuringRun Float,
+	  diffCarboRun Integer,
+	  diffMoisterRun Integer,
+	  difCarbo Integer,
+	  difMoister Integer,
+	  actFluidNeedBike Integer,
+	  actFluidNeedRun Integer,
+	  carboNeedDuringBikeMin Integer,
+	  carboNeedDuringBikeMax Integer,
+	  carboNeedDuringRunMin Integer,
+	  carboNeedDuringRunMax Integer,
+	  startGel Integer,
+	  startDrank Integer,
+}
+
+entity Training {
+	 date LocalDate,
+	 trainingTypeCode String,
+	 duration Integer,
+	 trainingIntensityCode Integer,
+	  temperature Integer,
+	  weightBefore Float,
+	  weightAfter Float,
+	  drunk Integer,
+	  eaten Integer,
+	  moistureLossPercentage Float,
+	  moistureLossPerHour Float,
+	  defaultMoisterLossPerHour Float,
+	  deltaMoisterLossPerHour Float,   // moisterlossPerHour - defaultMoisterlossPerHour
+	  excluded Boolean,
+	  comments String,
+	  carboDrank Integer
+}
+
+entity Voucher {
+	  code String,
+	  voucherType String
+	  redeemed Integer,
+	  maxDate LocalDate,
+	  amount Double,
+      maxRedeemed Integer,
+      category CategoryType
+}
+
+ enum CategoryType {
+	MUTIPLE, 
+    SINGLE
+}
+
+relationship OneToMany {
+  Athlete to Race,
+  Race to RacePlanForm,
+  Athlete to Training,
+  Athlete to Payment,
+  Voucher{athlete} to Athlete
+}
+
+relationship OneToOne {
+  Athlete{fuelSettings} to FuelSettings,
+  Athlete{internalUser} to User
+
+}
+
+
+filter *
+service all with serviceImpl 
+

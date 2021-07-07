@@ -1,0 +1,52 @@
+{
+  "name": "Voucher",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "voucherType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "redeemed",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "maxDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "maxRedeemed",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "category",
+      "fieldType": "CategoryType",
+      "fieldValues": "MUTIPLE,SINGLE"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "athlete",
+      "otherEntityRelationshipName": "voucher",
+      "relationshipName": "athlete"
+    }
+  ],
+  "entityTableName": "voucher",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210707060822"
+}

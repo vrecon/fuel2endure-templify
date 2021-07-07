@@ -1,0 +1,114 @@
+<div>
+  <h2 id="page-heading" data-cy="TrainingHeading">
+    <span jhiTranslate="fuel2EndureApp.training.home.title">Trainings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="fuel2EndureApp.training.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-training"
+        [routerLink]="['/training/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="fuel2EndureApp.training.home.createLabel"> Create a new Training </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="trainings?.length === 0">
+    <span jhiTranslate="fuel2EndureApp.training.home.notFound">No trainings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="trainings && trainings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.date">Date</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.trainingTypeCode">Training Type Code</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.duration">Duration</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.trainingIntensityCode">Training Intensity Code</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.temperature">Temperature</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.weightBefore">Weight Before</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.weightAfter">Weight After</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.drunk">Drunk</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.eaten">Eaten</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.moistureLossPercentage">Moisture Loss Percentage</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.moistureLossPerHour">Moisture Loss Per Hour</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.defaultMoisterLossPerHour">Default Moister Loss Per Hour</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.deltaMoisterLossPerHour">Delta Moister Loss Per Hour</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.excluded">Excluded</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.comments">Comments</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.carboDrank">Carbo Drank</span></th>
+          <th scope="col"><span jhiTranslate="fuel2EndureApp.training.athlete">Athlete</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let training of trainings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/training', training.id, 'view']">{{ training.id }}</a>
+          </td>
+          <td>{{ training.date | formatMediumDate }}</td>
+          <td>{{ training.trainingTypeCode }}</td>
+          <td>{{ training.duration }}</td>
+          <td>{{ training.trainingIntensityCode }}</td>
+          <td>{{ training.temperature }}</td>
+          <td>{{ training.weightBefore }}</td>
+          <td>{{ training.weightAfter }}</td>
+          <td>{{ training.drunk }}</td>
+          <td>{{ training.eaten }}</td>
+          <td>{{ training.moistureLossPercentage }}</td>
+          <td>{{ training.moistureLossPerHour }}</td>
+          <td>{{ training.defaultMoisterLossPerHour }}</td>
+          <td>{{ training.deltaMoisterLossPerHour }}</td>
+          <td>{{ training.excluded }}</td>
+          <td>{{ training.comments }}</td>
+          <td>{{ training.carboDrank }}</td>
+          <td>
+            <div *ngIf="training.athlete">
+              <a [routerLink]="['/athlete', training.athlete?.id, 'view']">{{ training.athlete?.id }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/training', training.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/training', training.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(training)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

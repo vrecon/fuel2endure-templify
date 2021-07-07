@@ -1,0 +1,31 @@
+{
+  "fuel2EndureApp": {
+    "voucher": {
+      "home": {
+        "title": "Vouchers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Maak een nieuwe Voucher",
+        "createOrEditLabel": "Maak of wijzig een Voucher",
+        "notFound": "No Vouchers found"
+      },
+      "created": "A new Voucher is created with identifier {{ param }}",
+      "updated": "A Voucher is updated with identifier {{ param }}",
+      "deleted": "A Voucher is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Voucher {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Voucher"
+      },
+      "id": "ID",
+      "code": "Code",
+      "voucherType": "Voucher Type",
+      "redeemed": "Redeemed",
+      "maxDate": "Max Date",
+      "amount": "Amount",
+      "maxRedeemed": "Max Redeemed",
+      "category": "Category",
+      "athlete": "Athlete"
+    }
+  }
+}

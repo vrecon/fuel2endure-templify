@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-athlete-heading" data-cy="AthleteCreateUpdateHeading" jhiTranslate="fuel2EndureApp.athlete.home.createOrEditLabel">
+        Create or edit a Athlete
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.athlete.middleName" for="field_middleName">Middle Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="middleName"
+            id="field_middleName"
+            data-cy="middleName"
+            formControlName="middleName"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.athlete.length" for="field_length">Length</label>
+          <input type="number" class="form-control" name="length" id="field_length" data-cy="length" formControlName="length" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.athlete.weight" for="field_weight">Weight</label>
+          <input type="number" class="form-control" name="weight" id="field_weight" data-cy="weight" formControlName="weight" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.athlete.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.athlete.fuelSettings" for="field_fuelSettings"
+            >Fuel Settings</label
+          >
+          <select class="form-control" id="field_fuelSettings" data-cy="fuelSettings" name="fuelSettings" formControlName="fuelSettings">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                fuelSettingsOption.id === editForm.get('fuelSettings')!.value?.id ? editForm.get('fuelSettings')!.value : fuelSettingsOption
+              "
+              *ngFor="let fuelSettingsOption of fuelSettingsCollection; trackBy: trackFuelSettingsById"
+            >
+              {{ fuelSettingsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.athlete.internalUser" for="field_internalUser"
+            >Internal User</label
+          >
+          <select class="form-control" id="field_internalUser" data-cy="internalUser" name="internalUser" formControlName="internalUser">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('internalUser')!.value?.id ? editForm.get('internalUser')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="fuel2EndureApp.athlete.voucher" for="field_voucher">Voucher</label>
+          <select class="form-control" id="field_voucher" data-cy="voucher" name="voucher" formControlName="voucher">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="voucherOption.id === editForm.get('voucher')!.value?.id ? editForm.get('voucher')!.value : voucherOption"
+              *ngFor="let voucherOption of vouchersSharedCollection; trackBy: trackVoucherById"
+            >
+              {{ voucherOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
